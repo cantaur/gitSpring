@@ -59,7 +59,7 @@ public class TestController {
         for(String name: names) log.info("name: " + name);
     }
 
-    @RequestMapping("/param6")
+    @RequestMapping("/param6") //
     public void m10(HumanList hlist) {
         log.info("#m10() hlist: " + hlist) ;
     }
