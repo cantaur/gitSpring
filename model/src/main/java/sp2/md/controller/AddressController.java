@@ -42,9 +42,9 @@ public class AddressController {
         return "redirect:list.do";
     }
 
-    @GetMapping("del.do")
+    @GetMapping("/del.do")
     public String delete(int seq){
-    addressService.delete(seq);
-    return "redirect:list.do";
+        addressService.delete(seq);
+        return "redirect:list.do";
     }
 }
