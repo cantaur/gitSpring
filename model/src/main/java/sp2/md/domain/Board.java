@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor //파라미터가 없는 생성자
+@AllArgsConstructor //파라미터가 있는 생성자
 public class Board {
     private int seq;
     private String writer;
@@ -15,6 +15,7 @@ public class Board {
     private String subject;
     private String content;
     private String rdate;
+
 
 
 }

@@ -18,6 +18,15 @@ public class BoardServiceImplTest extends TestCase {
     @Setter(onMethod_ = {@Autowired})
     private BoardService boardService;
 
+    @Test
+    public void searchName(){
+
+        String sName="전";
+        log.info("#MapperTests Mapper: "+boardService);
+        log.info("#MapperTests testList(): "+boardService.searchName(sName));
+
+    }
+
 //    @Test
 //    public void testListS() {
 //        log.info("#MapperTests Mapper: "+boardService);
@@ -38,14 +47,14 @@ public class BoardServiceImplTest extends TestCase {
 //        log.info("수행 성공");
 //    }
 
-        @Test
-        public void testSelectS(){
-            int seq=1;
-            log.info("#MapperTests Mapper: "+boardService);
-            log.info("#MapperTests testList(): "+boardService.selectS(seq));
-            boardService.selectS(seq);
-            log.info("수행성공");
-        }
+//        @Test
+//        public void testSelectS(){
+//            int seq=1;
+//            log.info("#MapperTests Mapper: "+boardService);
+//            log.info("#MapperTests testList(): "+boardService.selectS(seq));
+//            boardService.selectS(seq);
+//            log.info("수행성공");
+//        }
 
 
 

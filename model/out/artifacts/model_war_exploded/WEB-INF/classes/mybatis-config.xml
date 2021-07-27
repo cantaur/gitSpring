@@ -13,9 +13,11 @@
     <typeAliases>
         <typeAlias alias = "Address" type="sp2.md.domain.Address"/>
         <typeAlias alias = "Board" type="sp2.md.domain.Board"/>
+        <typeAlias alias = "BoardVo" type="sp2.md.domain.BoardVo"/>
     </typeAliases>
     <mappers>
-        <mapper resource="sp2/md/mapper/AddressMapper.xml"/>
+        <mapper resource="sp2/md/mapper/AddressMapper1.xml"/>
+        <mapper resource="sp2/md/mapper/AddressMapper2.xml"/>
         <mapper resource="sp2/md/mapper/BoardMapper.xml"/>
     </mappers>
 

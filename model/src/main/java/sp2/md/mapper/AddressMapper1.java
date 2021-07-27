@@ -6,7 +6,7 @@ import sp2.md.domain.Address;
 import java.util.List;
 
 @Repository
-public interface AddressMapper {
+public interface AddressMapper1 {
     List<Address> list();
     void insert(Address address);
     void delete(int seq);

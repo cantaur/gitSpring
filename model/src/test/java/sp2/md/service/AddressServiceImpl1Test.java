@@ -14,7 +14,7 @@ import sp2.md.domain.Address;
 @Log4j
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:web/WEB-INF/spring/applicationContext.xml") //이 파일을 이용해서 설정하여라
-public class AddressServiceImplTest extends TestCase {
+public class AddressServiceImpl1Test extends TestCase {
     @Setter(onMethod_ = {@Autowired}) //롬복에서 지원하는 인젝션
     private AddressService addressService;
 

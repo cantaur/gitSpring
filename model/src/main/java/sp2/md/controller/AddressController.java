@@ -11,12 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 import sp2.md.domain.Address;
 import sp2.md.service.AddressService;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Controller
 @RequestMapping("/address/*")
 public class AddressController {
-    @Autowired
+//    @Autowired
+    @Resource(name="addressService2")
     private AddressService addressService;
 
     @GetMapping("/list.do")

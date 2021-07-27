@@ -17,11 +17,11 @@ public class BoardMapperTest {
     @Autowired
     private BoardMapper boardMapper;
 
-    @Test
-    public void testList() {
-        log.info("#MapperTests Mapper: " + boardMapper);
-        log.info("#MapperTests testList(): " + boardMapper.list());
-    }
+//    @Test
+//    public void testList() {
+//        log.info("#MapperTests Mapper: " + boardMapper);
+//        log.info("#MapperTests testList(): " + boardMapper.list());
+//    }
 
 //    @Test
 //    public void testInsert() {
