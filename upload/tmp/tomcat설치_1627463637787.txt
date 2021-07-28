@@ -1,0 +1,30 @@
+(1) 각 환경에서 지원하는 버젼 
+    http://tomcat.apache.org/whichversion.html
+
+(2) 다운로드 
+    https://tomcat.apache.org/download-90.cgi
+
+(3) 압축풀기 
+    C:\SOO\Web\tomcat9
+
+(4) 환경셋팅 
+    1) JAVA_HOME -> C:\Program Files\Java\jdk1.8.0_221
+    2) CATALINA_HOME -> C:\SOO\Web\tomcat9
+    3) Path -> %CATALINA_HOME%\bin
+
+(5) 한글 깨짐 잡는 것은 옵션 
+
+(6) 서버 시작 / 멈춤 
+    CMD창> startup
+    CMD창> shutdown 
+   
+(7) ROOT에 HTML내용 붙여넣기 
+    C:\SOO\Web\tomcat9\webapps\ROOT
+
+(8) 서버 시작
+    CMD창> startup
+
+(9) 웹브라우져 요청 
+    http://127.0.0.1:8080
+    
+
