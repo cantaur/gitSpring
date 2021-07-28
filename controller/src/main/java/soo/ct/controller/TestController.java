@@ -38,7 +38,7 @@ public class TestController {
     }
 
     @RequestMapping("/param1")
-    public void m05(Human dto) {
+    public void m05(Human dto) { //dto를 바로 불러올 수 있다!
         log.info("#m05() dto: " + dto) ;
     }
     @RequestMapping("/param2")
@@ -59,24 +59,29 @@ public class TestController {
         for(String name: names) log.info("name: " + name);
     }
 
-    @RequestMapping("/param6")
+    @RequestMapping("/param6") //
     public void m10(HumanList hlist) {
         log.info("#m10() hlist: " + hlist) ;
     }
+
+    //dto 외의 다른 파라미터도 함께 받을 경우
     @RequestMapping("/param7")
     public void m11(Human dto, @RequestParam int page) {
         log.info("#m11() dto: " + dto + ", page: " + page) ;
     }
+
+    //시간 정보 받아오기
     @RequestMapping("/param8")
     public void m12(ToDoDTO dto) {
         log.info("#m12() dto: " + dto) ;
         log.info("#m12() cdate: " + dto.getCdate()) ;
     }
 
+    //서버에서 클라이언트로 html이 아닌 데이터(test,xml,json)을 넘겨줄 때
     @GetMapping("/json1")
     public ResponseEntity<String> m13() {
         String msg = "{\"name\":\"홍길동\", \"age\":20}"; //JSON
-        HttpHeaders headers = new HttpHeaders();
+        HttpHeaders headers = new HttpHeaders(); //데이터 넘어가는 공간
         headers.add("Content-Type", "application/json;charset=utf-8");
 
         return new ResponseEntity<String>(msg, headers, HttpStatus.OK);
@@ -88,7 +93,7 @@ public class TestController {
     @GetMapping("/json2")
     public @ResponseBody
     Human m14() { //*****
-        Human man = new Human("최동현", 26);
+        Human man = new Human("이가은", 36);
         return man;
     }
 }
