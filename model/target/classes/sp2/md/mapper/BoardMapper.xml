@@ -29,9 +29,9 @@
         select max(ROWNUM) from BOARD
     </select>
 
-    <insert id="insert" parameterType="Board">
-        insert into BOARD values(BOARD_SEQ.nextval, #{writer}, #{email}, #{subject}, #{content}, SYSDATE)
-    </insert>
+<!--    <insert id="insert" parameterType="Board">-->
+<!--        insert into BOARD values(BOARD_SEQ.nextval, #{writer}, #{email}, #{subject}, #{content}, SYSDATE)-->
+<!--    </insert>-->
     <update id="update" parameterType="Board">
         update BOARD set EMAIL=#{email}, SUBJECT=#{subject}, CONTENT=#{content} where SEQ=#{seq}
     </update>
@@ -39,6 +39,13 @@
     <delete id="delete" parameterType="int">
         delete from BOARD where SEQ=#{seq}
     </delete>
+
+    <insert id="insert" parameterType="BoardFile">
+        insert into BOARD values(BOARD_SEQ.nextval, #{writer}, #{email}, #{subject}, #{content}, SYSDATE, #{fname}, #{ofname}, #{fsize})
+    </insert>
+
+
+
 
 
 </mapper>

@@ -2,17 +2,21 @@ package sp2.md.controller;
 
 
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import sp2.md.domain.Address;
 import sp2.md.domain.Board;
+import sp2.md.domain.BoardFile;
 import sp2.md.domain.BoardListResult;
 import sp2.md.service.BoardService;
+import sp2.md.service.FileUploadService;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,19 +24,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+@Log4j
 @Controller
 @RequestMapping("/board/*")
 @AllArgsConstructor //AutoInjection 하기 위해
-public class BoardController {
+public class BoardController<s> {
 
     private BoardService boardService;
+    private FileUploadService fileUploadService;
 
     @GetMapping("/list.do")
     public ModelAndView list(HttpServletRequest request, HttpSession session){ //getParameter 메소드와 session에 저장되어 있는 값을 사용하기 위해
         String cpStr = request.getParameter("cp"); //클라이언트로부터 받음
         String psStr = request.getParameter("ps"); //클라이언트로부터 받음
-
-
+        String sName = request.getParameter("keyword");
+        String nameCate = request.getParameter("category");
 
         //(1) cp, 현재 페이지수 구하기
         int cp = 1;
@@ -63,7 +69,7 @@ public class BoardController {
                 int psSession = (Integer)psObj;
                 if(psSession != psParam) { //case2) 비교했는데 둘이 값이 다르다면(==page size가 바뀌게 되면) 기존 ps의 의미가 사라지므로 맨 첫번째 페이지로 보내버림
                     cp = 1;
-                    session.setAttribute("cp", cp); 
+                    session.setAttribute("cp", cp);
                 }
             }else { //case2) session에 저장된 값이 없다면 디폴트값과 비교해서 다르면 1페이지로 보내버림
                 if(ps != psParam) {
@@ -82,25 +88,34 @@ public class BoardController {
         if(listResult.getList().size() == 0) { //현재 페이지의 글 갯수가 0일 때
             if(cp>1)
                 return new ModelAndView("redirect:list.do?cp="+(cp-1)); //한 페이지 앞으로 이동해라
-            else 
+            else
                 return new ModelAndView("board/list", "listResult", null); //하필 마지막 페이지가 1페이지인 경우엔 null을 반환해라
         }else {
             return modelAndView;
         }
     }
+//
+//    @PostMapping("list.do")
+//    public ModelAndView searchName(HttpServletRequest request, HttpSession session){
+//        String sName = request.getParameter("keyword");
+//        String nameCate = request.getParameter("category");
+//
+//        System.out.println("넘어왔는가??"+sName);
+//        System.out.println("카테고리"+nameCate);
+//
+//        Board search = boardService.searchName(sName);
+//        ModelAndView modelAndView = new ModelAndView("board/list", "search", search);
+//        return modelAndView;
+//    }
+//
 
-    @PostMapping("/list.do")
-    public ModelAndView searchName(HttpServletRequest request, HttpSession session){
-        String sName = request.getParameter("keyword");
-        String nameCate = request.getParameter("category");
 
-        System.out.println("넘어왔는가??"+sName);
-        System.out.println("카테고리"+nameCate);
 
-        Board search = boardService.searchName(sName);
-        ModelAndView modelAndView = new ModelAndView("board/list", "search", search);
-        return modelAndView;
-    }
+
+
+
+
+
 
 
 
@@ -111,13 +126,22 @@ public class BoardController {
     }
 
     @PostMapping("/write.do")
-    public String write(Board board){
-        boardService.insertS(board);
+    public String write(BoardFile boardFile, MultipartFile file){
+        log.info("#file: "+file);
+        String ofileName = file.getOriginalFilename(); //파일이 중복될 경우에 씀
+        log.info("#file"+ofileName);
+        if(ofileName != null) ofileName=ofileName.trim();
+        if(ofileName.length()!=0){
+            String url = fileUploadService.saveStore(file);
+            log.info("url: "+url);
+        }
+
+        boardService.insertS(boardFile);
         return "redirect:list.do";
     }
 
     @GetMapping("/content.do")
-    public ModelAndView content(int seq){
+    public ModelAndView content(int seq) {
         Board select = boardService.getBoard(seq);
         ModelAndView modelAndView = new ModelAndView("board/content", "select", select);
         return modelAndView;

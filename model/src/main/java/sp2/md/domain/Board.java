@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+
 @Data
 @NoArgsConstructor //파라미터가 없는 생성자
 @AllArgsConstructor //파라미터가 있는 생성자
@@ -14,9 +16,13 @@ public class Board {
     private String email;
     private String subject;
     private String content;
-    private String rdate;
-
-
+    private Date rdate;
+    private String fname;
+    private String ofname;
+    private long fsize;
 
 }
+
+
+
 

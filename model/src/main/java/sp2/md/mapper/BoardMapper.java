@@ -2,6 +2,7 @@ package sp2.md.mapper;
 
 import org.springframework.stereotype.Repository;
 import sp2.md.domain.Board;
+import sp2.md.domain.BoardFile;
 import sp2.md.domain.BoardVo;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public interface BoardMapper {
 
     int selectCount();
 
-    void insert(Board board);
+    void insert(BoardFile boardFile);
 
     boolean update(Board board);
 

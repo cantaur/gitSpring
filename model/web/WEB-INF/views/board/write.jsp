@@ -7,13 +7,13 @@
     <meta charset='utf-8'>
     <title>Spring Board</title>
     <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 5px;
-        }
+        /*table, th, td {*/
+        /*    border: 1px solid black;*/
+        /*    border-collapse: collapse;*/
+        /*}*/
+        /*th, td {*/
+        /*    padding: 5px;*/
+        /*}*/
         a { text-decoration:none }
     </style>
 
@@ -50,8 +50,8 @@
     </div>
 
 
-    <form name="input" method="post" action="write.do">
-        <table border="0" width="500" align="center" cellpadding="3" cellspacing="1" bordercolor="gray">
+    <form name="input" method="post" action="write.do" enctype="multipart/form-data">
+        <table border="0" width="600" align="center" cellpadding="3" cellspacing="1" bordercolor="gray">
             <tr>
                 <td width="30%" align="center">WRITER</td>
                 <td><input type="text" name="writer" size="67"></td>
@@ -66,8 +66,15 @@
             </tr>
             <tr>
                 <td align="center">CONTENT</td>
-                <td><textarea  name="content" rows="15" cols="60"></textarea></td>
+                <td><textarea  name="content" rows="15" cols="70"></textarea></td>
             </tr>
+            <tr>
+                <td align="center">파일<br/>업로드</td>
+                <td><input type="file" name="file" rows="15" cols="60"></input></td>
+            </tr>
+
+
+
             <tr>
                 <td colspan="2" align="center">
                     <input type="button" value="전송" onclick="check()">

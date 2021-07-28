@@ -3,7 +3,9 @@ package sp2.md.service;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import sp2.md.domain.Board;
+import sp2.md.domain.BoardFile;
 import sp2.md.domain.BoardListResult;
 import sp2.md.domain.BoardVo;
 import sp2.md.mapper.BoardMapper;
@@ -42,8 +44,8 @@ public class BoardServiceImpl implements BoardService{
 
 
     @Override
-    public void insertS(Board board) {
-        boardMapper.insert(board);
+    public void insertS(BoardFile boardFile) {
+        boardMapper.insert(boardFile);
     }
 
     @Override

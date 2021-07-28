@@ -54,6 +54,11 @@
             <td>${select.content}</td>
         </tr>
 
+        <tr>
+            <td width='20%' align='center'>File</td>
+            <td><a href="download.do?fname=${file.name}">${file.name}</a></td>
+        </tr>
+
     </table>
 
     <hr width='600' size='2' color='gray' noshade>
