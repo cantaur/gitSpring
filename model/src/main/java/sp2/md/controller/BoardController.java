@@ -1,30 +1,37 @@
 package sp2.md.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import sp2.md.domain.Address;
 import sp2.md.domain.Board;
 import sp2.md.domain.BoardListResult;
+import sp2.md.filesetting.Path;
 import sp2.md.service.BoardService;
+import sp2.md.service.FileUploadService;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.List;
 
+@Log4j
 @Controller
 @RequestMapping("/board/*")
 @AllArgsConstructor //AutoInjection 하기 위해
 public class BoardController {
 
     private BoardService boardService;
+
 
     @GetMapping("/list.do")
     public ModelAndView list(HttpServletRequest request, HttpSession session){ //getParameter 메소드와 session에 저장되어 있는 값을 사용하기 위해
@@ -106,8 +113,16 @@ public class BoardController {
     }
 
     @PostMapping("/write.do")
-    public String write(Board board){
-        boardService.insertS(board);
+    public String write(MultipartFile file, Board board){
+        log.info("#file: "+file);
+        String ofileName = file.getOriginalFilename();
+        log.info("#file"+ofileName);
+        if(ofileName != null) ofileName=ofileName.trim();
+        if(ofileName.length()!=0){
+            String url = boardService.saveStore(file, board);
+            log.info("url: "+url);
+        }
+        //boardService.insertS(board);
         return "redirect:list.do";
     }
 
@@ -117,6 +132,23 @@ public class BoardController {
         ModelAndView modelAndView = new ModelAndView("board/content", "select", select);
         return modelAndView;
     }
+
+    @GetMapping("download.do")
+    public ModelAndView download(String fname){
+        //넘어오는 파일이름으로 파일 객체를 생성해야함
+        //페이지를 보고 있는 순간에 파일이 삭제되었지만 새로고침이 되지 않은 경우, 파일이 존재하지 않으므로, 파일 존재여부를 체크해야함
+        File file = new File(Path.FILE_STORE, fname);
+        if(file.exists()){
+            return new ModelAndView("fileDownloadView", "downloadFile", file); //fileDownloadView: 스프링컨테이너에서 생성된 파일 객체
+        }else{
+            return new ModelAndView("redirect:list.do");
+        }
+
+    }
+
+
+
+
 
     @GetMapping("/update.do")
     public ModelAndView update(int seq){
