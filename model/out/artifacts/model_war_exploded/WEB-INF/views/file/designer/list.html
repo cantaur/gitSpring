@@ -26,29 +26,29 @@
 	    <a href="../">인덱스
 	    <br/><br/>
 	    
-	    <center>
-	    <table>
-	        <tr>
-	           <th>이름</th>
-	           <th>크기</th>
-	           <th>삭제</th>
-	        </tr>
+	    <div style="text-align: center">
+			<table>
+				<tr>
+				   <th>이름</th>
+				   <th>크기</th>
+				   <th>삭제</th>
+				</tr>
 
-	           <tr>
-	              <td align="center" colspan="3">파일이 하나도 없음</td>
-	           </tr>
+				   <tr>
+					  <td align="center" colspan="3">파일이 하나도 없음</td>
+				   </tr>
 
-	           <tr>
-	             <td align="center">
-	               <a href="download?fname=${file.name}">${file.name}</a>
-	             </td>
-	             <td align="center">${file.length()}</td>
-	             <td align="center">
-	               <a href="del?fname=${file.name}">삭제</a>
-	             </td>
-	          </tr>
+				   <tr>
+					 <td align="center">
+					   <a href="download?fname=${file.name}">${file.name}</a>
+					 </td>
+					 <td align="center">${file.length()}</td>
+					 <td align="center">
+					   <a href="del?fname=${file.name}">삭제</a>
+					 </td>
+				  </tr>
 
-	    </table>
-	    </center>
+			</table>
+	    </div>
 	</body>
 </html>

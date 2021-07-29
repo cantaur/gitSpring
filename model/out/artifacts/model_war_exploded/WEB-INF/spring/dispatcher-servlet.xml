@@ -17,5 +17,4 @@
     <context:component-scan base-package="sp2.md.controller"/>
 <!--    컨트롤러 추가시 이곳에 꼭 추가해야됨-->
 
-
 </beans>
