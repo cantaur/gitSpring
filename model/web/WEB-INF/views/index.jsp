@@ -11,6 +11,7 @@
 <p>
     <a href="address/list.do">주소록</a><br/>
     <a href="board/list.do">게시판</a><br/>
+    <a href="file/list.do">파일 리스트</a>
 </p>
 
 </body>
