@@ -44,9 +44,8 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public Board searchName(String sName) {
-        Board board = boardMapper.searchName(sName);
-        return board;
+    public List<Board> searchName(String sName) {
+        return boardMapper.searchName(sName);
     }
 
 

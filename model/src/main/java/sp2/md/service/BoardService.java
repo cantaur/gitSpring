@@ -9,7 +9,7 @@ import java.util.List;
 public interface BoardService {
     BoardListResult getBoardListResult(int cp, int ps);
     Board getBoard(int seq);
-    Board searchName(String sName);
+    List<Board> searchName(String sName);
 
     void insertS(Board board);
     void insert2S(Board board);

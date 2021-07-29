@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import sp2.md.domain.Address;
@@ -82,28 +79,35 @@ public class BoardController {
         //(3) ModelAndView
 
         BoardListResult listResult = boardService.getBoardListResult(cp, ps);
-        ModelAndView modelAndView = new ModelAndView("board/list", "listResult", listResult);
+        ModelAndView modelAndView = new ModelAndView("board/list02", "listResult", listResult);
         if(listResult.getList().size() == 0) { //현재 페이지의 글 갯수가 0일 때
             if(cp>1)
                 return new ModelAndView("redirect:list.do?cp="+(cp-1)); //한 페이지 앞으로 이동해라
             else 
-                return new ModelAndView("board/list", "listResult", null); //하필 마지막 페이지가 1페이지인 경우엔 null을 반환해라
+                return new ModelAndView("board/list02", "listResult", null); //하필 마지막 페이지가 1페이지인 경우엔 null을 반환해라
         }else {
             return modelAndView;
         }
     }
 
-    @PostMapping("/list.do")
-    public ModelAndView searchName(HttpServletRequest request, HttpSession session){
+    @ResponseBody
+    @PostMapping("/search.do")
+    public List<Board> searchName(HttpServletRequest request, HttpServletResponse response){
         String sName = request.getParameter("keyword");
         String nameCate = request.getParameter("category");
 
+        List<Board> list = boardService.searchName(sName);
+
+
+
+
         System.out.println("넘어왔는가??"+sName);
         System.out.println("카테고리"+nameCate);
+        return list;
 
-        Board search = boardService.searchName(sName);
-        ModelAndView modelAndView = new ModelAndView("board/list", "search", search);
-        return modelAndView;
+//        Board search = boardService.searchName(sName);
+//        ModelAndView modelAndView = new ModelAndView("board/list02", "search", search);
+//        return modelAndView;
     }
 
     @GetMapping("/write.do")

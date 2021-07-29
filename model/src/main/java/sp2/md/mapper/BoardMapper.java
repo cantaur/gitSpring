@@ -22,7 +22,7 @@ public interface BoardMapper {
 
     boolean delete(int seq);
 
-    Board searchName(String sName);
+    List<Board> searchName(String sName);
 
 
 }
