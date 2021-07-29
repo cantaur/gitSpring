@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!--<beans xmlns="http://www.springframework.org/schema/beans"-->
 <!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
@@ -21,4 +22,30 @@
         <mapper resource="sp2/md/mapper/BoardMapper.xml"/>
     </mappers>
 
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">-->
+
+<!--</beans>-->
+
+
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias alias = "Address" type="sp2.md.domain.Address"/>
+        <typeAlias alias = "Board" type="sp2.md.domain.Board"/>
+        <typeAlias alias = "BoardVo" type="sp2.md.domain.BoardVo"/>
+        <typeAlias alias = "BoardFile" type="sp2.md.domain.BoardFile"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="sp2/md/mapper/AddressMapper1.xml"/>
+        <mapper resource="sp2/md/mapper/AddressMapper2.xml"/>
+        <mapper resource="sp2/md/mapper/BoardMapper.xml"/>
+    </mappers>
+
+>>>>>>> 916c4f7880011f5e978dc9ee974f738de568f7c1
 </configuration>
