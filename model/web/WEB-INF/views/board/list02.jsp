@@ -28,7 +28,7 @@
 
                 },
                 success: function(data){
-                    console.log("여기까진 오냐?");
+
                     console.log(data);
 
                     // if(!data){

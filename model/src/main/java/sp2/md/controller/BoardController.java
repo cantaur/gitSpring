@@ -1,5 +1,7 @@
 package sp2.md.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 @Log4j
@@ -90,20 +94,24 @@ public class BoardController {
         }
     }
 
-    @ResponseBody
+
     @PostMapping("/search.do")
-    public List<Board> searchName(HttpServletRequest request, HttpServletResponse response){
+    public void searchName(HttpServletRequest request, HttpServletResponse response){
+
         String sName = request.getParameter("keyword");
         String nameCate = request.getParameter("category");
-
-        List<Board> list = boardService.searchName(sName);
-
-
-
-
         System.out.println("넘어왔는가??"+sName);
         System.out.println("카테고리"+nameCate);
-        return list;
+        List<Board> list = boardService.searchName(sName);
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            String json = objectMapper.writeValueAsString(list);
+            response.setContentType("application/json;charset=utf-8");
+            PrintWriter pw = response.getWriter();
+            pw.println(json);
+        }catch (JsonProcessingException je) {
+        }catch (IOException ie){}
+
 
 //        Board search = boardService.searchName(sName);
 //        ModelAndView modelAndView = new ModelAndView("board/list02", "search", search);

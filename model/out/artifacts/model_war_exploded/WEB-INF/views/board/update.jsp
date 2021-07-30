@@ -61,6 +61,18 @@
       </td>
     </tr>
     <tr>
+      <td width='20%' align='center'>FILE</td>
+      <td>${select.fname}</td>
+    </tr>
+    <tr>
+      <td align='center'>파일<br/>수정</td>
+      <td><input type='file' name='file' size='67'/>
+      </td>
+    </tr>
+
+
+
+    <tr>
       <td colspan='2' align='center'>
         <input type='submit' value='modify'>
       </td>

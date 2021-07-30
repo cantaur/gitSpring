@@ -32,6 +32,10 @@
     <insert id="insert" parameterType="Board">
         insert into BOARD values(BOARD_SEQ.nextval, #{writer}, #{email}, #{subject}, #{content}, SYSDATE)
     </insert>
+    <update id="update2" parameterType="Board">
+        update BOARD set EMAIL=#{email}, SUBJECT=#{subject}, CONTENT=#{content}, FNAME=#{fname}, OFNAME=#{ofname}, FSIZE=#{fsize} where SEQ=#{seq}
+    </update>
+
     <update id="update" parameterType="Board">
         update BOARD set EMAIL=#{email}, SUBJECT=#{subject}, CONTENT=#{content} where SEQ=#{seq}
     </update>
