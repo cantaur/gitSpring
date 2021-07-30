@@ -10,6 +10,8 @@ public interface BoardService {
     BoardListResult getBoardListResult(int cp, int ps);
     Board getBoard(int seq);
     List<Board> searchName(String sName);
+    List<Board> searchSubject(String subj);
+    List<Board> searchContent(String content);
 
     void insertS(Board board);
     void insert2S(Board board);

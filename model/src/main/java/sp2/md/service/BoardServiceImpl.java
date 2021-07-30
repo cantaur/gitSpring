@@ -48,6 +48,16 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.searchName(sName);
     }
 
+    @Override
+    public List<Board> searchSubject(String subj) {
+        return boardMapper.searchSubject(subj);
+    }
+
+    @Override
+    public List<Board> searchContent(String content) {
+        return boardMapper.searchContent(content);
+    }
+
 
     @Override
     public void insertS(Board board) {

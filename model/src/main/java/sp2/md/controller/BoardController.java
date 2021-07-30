@@ -96,13 +96,20 @@ public class BoardController {
 
 
     @PostMapping("/search.do")
-    public void searchName(HttpServletRequest request, HttpServletResponse response){
+    public void search(HttpServletRequest request, HttpServletResponse response){
 
-        String sName = request.getParameter("keyword");
-        String nameCate = request.getParameter("category");
-        System.out.println("넘어왔는가??"+sName);
-        System.out.println("카테고리"+nameCate);
-        List<Board> list = boardService.searchName(sName);
+        List<Board> list = null;
+        String keyword = request.getParameter("keyword");
+        String category = request.getParameter("category");
+        System.out.println("넘어왔는가??"+keyword);
+        System.out.println("카테고리"+category);
+        if(category.equals("writer")){
+            list = boardService.searchName(keyword);
+        }else if(category.equals("subject")){
+            list = boardService.searchSubject(keyword);
+        }else if(category.equals("content")){
+            list = boardService.searchContent(keyword);
+        }
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String json = objectMapper.writeValueAsString(list);
@@ -112,11 +119,9 @@ public class BoardController {
         }catch (JsonProcessingException je) {
         }catch (IOException ie){}
 
-
-//        Board search = boardService.searchName(sName);
-//        ModelAndView modelAndView = new ModelAndView("board/list02", "search", search);
-//        return modelAndView;
     }
+
+
 
     @GetMapping("/write.do")
     public String write(){ //string일 때는 jsp의 페이지 이름을 찾게 되어있다

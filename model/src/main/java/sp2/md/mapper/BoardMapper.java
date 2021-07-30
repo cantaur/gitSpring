@@ -24,5 +24,9 @@ public interface BoardMapper {
 
     List<Board> searchName(String sName);
 
+    List<Board> searchSubject(String subj);
+
+    List<Board> searchContent(String content);
+
 
 }
