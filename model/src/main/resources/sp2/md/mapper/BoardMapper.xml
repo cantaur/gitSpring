@@ -15,6 +15,38 @@
     ]]>
     </select>
 
+
+    <!-- 검색할 때 결과물 반환하는 동적 쿼리 구현-->
+    <select id="selectBoard" resultType="Board">
+        select * from
+            (select ROWNUM rnum, aa.*, WRITER nm from
+                (select * from BOARD
+                <if test="searchStr!=null">
+                 WHERE ${category} LIKE '%'||#{searchStr}||'%'
+                </if>
+                 order by SEQ desc)
+                    aa)
+        <![CDATA[ where rnum>#{startList} and rnum<=(#{startList} + #{listSize})]]>
+    </select>
+
+    <!-- 전체 글의 개수를 읽어 오는 동적 SQL문 -->
+    <select id="getBoardListCnt" resultType="int">
+        select count(*) from
+        (select ROWNUM rnum, aa.*, WRITER nm from
+        (select * from BOARD
+        <if test="searchStr!=null">WHERE ${category} LIKE '%'||#{searchStr}||'%'
+        </if>
+        )aa)
+    </select>
+
+
+
+
+
+    <select id="selectAll" resultType="Board">
+        select * from BOARD order by seq desc
+    </select>
+
     <select id="select" parameterType="int" resultType="Board">
         select * from BOARD where SEQ=#{seq}
     </select>

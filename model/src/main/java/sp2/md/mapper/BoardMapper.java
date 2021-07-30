@@ -3,6 +3,7 @@ package sp2.md.mapper;
 import org.springframework.stereotype.Repository;
 import sp2.md.domain.Board;
 import sp2.md.domain.BoardVo;
+import sp2.md.domain.Search;
 
 import java.util.List;
 
@@ -10,7 +11,13 @@ import java.util.List;
 public interface BoardMapper {
     List<Board> list(BoardVo boardVo);
 
+    List<Board> selectAll(Board board);
+    List<Board> selectBoard(Search search);
+
+
     Board select(int seq);
+
+    int getBoardListCnt(Search search);
 
     int selectCount();
 

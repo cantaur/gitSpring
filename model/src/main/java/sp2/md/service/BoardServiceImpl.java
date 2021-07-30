@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import sp2.md.domain.Board;
 import sp2.md.domain.BoardListResult;
 import sp2.md.domain.BoardVo;
+import sp2.md.domain.Search;
 import sp2.md.filesetting.Path;
 import sp2.md.mapper.BoardMapper;
 import sp2.md.service.BoardService;
@@ -38,9 +39,25 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
+    public List<Board> selectBoard(Search search) {
+
+        return boardMapper.selectBoard(search);
+    }
+
+    @Override
+    public List<Board> selectAll(Board board) {
+        return boardMapper.selectAll(board);
+    }
+
+    @Override
     public Board getBoard(int seq) {
         Board board = boardMapper.select(seq);
         return board;
+    }
+
+    @Override
+    public int getBoardListCnt(Search search) {
+        return boardMapper.getBoardListCnt(search);
     }
 
     @Override
