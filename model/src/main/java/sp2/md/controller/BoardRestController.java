@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import sp2.md.domain.Search;
 import sp2.md.service.BoardService;
 
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,21 +27,33 @@ public class BoardRestController {
     @RequestMapping(value = "getBoardlist.do", produces = "application/json")
 //    @GetMapping(value = "getBoardlist", produces = "application/json")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> list(Search search, @RequestParam(required = false, defaultValue = "1") int page, String category, String searchStr)  {
+    public ResponseEntity<Map<String, Object>> list(Search search, @RequestParam(required = false, defaultValue = "1") int page, String category, String searchStr) throws UnsupportedEncodingException {
 
         Map<String,Object> result = new HashMap<String, Object>();
-        log.info(searchStr + "aaaa");
-        log.info(category + "aaaa");
-        log.info(search + "zzzz");
+        if(category == ""){
+            category = null;
+        }
+        else {
+            category = URLDecoder.decode(category, "UTF-8");
+            log.info(category + "zz");
+        }
+        if(searchStr == ""){
+            searchStr = null;
+        }
+        else {
+            searchStr = URLDecoder.decode(searchStr, "UTF-8");
+            log.info(searchStr + "zz");
+
+        }
+
+        search.pageInfo(page, searchStr, category);
 
         int listCnt = boardService.getBoardListCnt(search);
 
-        //전체 게시글 갯수를 얻어와 listCnt에 저장
-        search.pageInfo(page, listCnt, searchStr, category);
+
 
 
         // 게시글 화면 출력
-        log.info(search + "aaaa");
         log.info(boardService.selectBoard(search) + "eeee");
 
         result.put("list", boardService.selectBoard(search));

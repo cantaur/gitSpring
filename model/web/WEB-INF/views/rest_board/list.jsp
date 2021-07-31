@@ -35,6 +35,7 @@
             color:#555;
             margin:2px;
             cursor:pointer;
+            user-select:none;
         }
         #pageLinkWrap span:hover{
             background-color:#f2f2f2;
@@ -84,30 +85,59 @@
 <hr width='600' size='2' color='gray' noshade>
 
 <select name="category" id="category">
-    <option value="subject">제목</option>
+    <option value="subject" selected>제목</option>
     <option value="writer">글쓴이</option>
     <option value="content">내용</option>
 </select>
-<input type="text" name="keyword" id="inputKeyword" size="40" required="required"/>
-<button type="button" id="seachOk">검색</button>
+<input type="text" name="keyword" id="searchStr" size="40"/>
+<button type="button" id="searchBtn">검색</button>
+
+<input type="hidden" id="searchStrDummy">
+<input type="hidden" id="categoryDummy" value="subject">
 
 
 
 <script language="javascript">
-    var page = 1;
-    if(location.href.indexOf('?page=') != -1){
-        page = Number(location.href.split('?page=')[1]);
-    }
+
     $(function(){
-        getPage(page, '가', 'writer')
+        getPage(1, '', '')
     })
+
+
+    $(document).on('click', '#pageLinkWrap .link', function(){
+        getPage(Number($(this).text()), $('#searchStrDummy').val(), $('#categoryDummy').val())
+    })
+
+    $(document).on('change', '#category', function(){
+        $('#categoryDummy').val($('#category option:selected').val())
+        console.log(typeof($('#categoryDummy').val()))
+        console.log(typeof('테'))
+    })
+
+    $(document).on('click', '#searchBtn', function(){
+        $('#searchStrDummy').val($('#searchStr').val())
+        searchEvent();
+    })
+    $(document).on('keyup', '#searchStr', function(e){
+        if(e.keyCode == 13){
+            $('#searchBtn').trigger('click')
+        }
+    })
+
+    function searchEvent(){
+        var searchStr = $('#searchStrDummy').val();
+        var category = $('#categoryDummy').val();
+        getPage(1, searchStr, category)
+    }
+
+
     function getPage(page, searchStr, category) {
         $.ajax({
             url : "../rest_board/getBoardlist.do", //서비스 주소
             data : { //서비스 처리에 필요한 인자값
                 page : page,
-                category: category,
                 searchStr: searchStr,
+                category: category,
             },
             success : function(res) {
                 history.replaceState({}, null, location.pathname);
@@ -117,22 +147,36 @@
                 var html = "";
                 var list = res['list'];
                 var listCnt = Number(res['listCnt'])
-                var pageCnt = Math.round(listCnt/list.length)
-                var pageSize = 3;
+                var pageCnt = Math.round(listCnt/10)
+                var pageSize = 5;
 
                 $('#listCnt').text(listCnt);
-                $('#pageCnt').text(pageCnt)
 
-                for(var board of list){
-                    html+="<tr class='boardRow'>" // 컨텐츠 1열마다 boardRow 클래스 지정
-                    html+="<td align='center'>"+board.seq+"</td>"
-                    html+="<td>"+board.writer+"</td>"
-                    html+="<td>"+board.email+"</td>"
-                    html+="<td><a href='content.do?seq="+board.seq+"'>"+board.subject+"</a></td>"
-                    html+="<td>"+board.rdate+"</td>"
-                    html+="</tr>"
+                if(pageCnt == 0){
+                    $('#pageCnt').text('1');
+                    $('#pageLinkWrap').append('<span class="crt">1</span>')
+                }else {
+                    $('#pageCnt').text(pageCnt)
                 }
+
+                if(list.length == 0){
+                    html+='<tr class="boardRow"><td align="center" colspan="5">검색결과가 없습니다.</td></tr>'
+                    $('#pageLinkWrap span').remove();
+                    $('#pageCnt').text('0');
+                } else {
+                    for(var board of list){
+                        html+="<tr class='boardRow'>" // 컨텐츠 1열마다 boardRow 클래스 지정
+                        html+="<td align='center'>"+board.seq+"</td>"
+                        html+="<td>"+board.writer+"</td>"
+                        html+="<td>"+board.email+"</td>"
+                        html+="<td><a href='content.do?seq="+board.seq+"'>"+board.subject+"</a></td>"
+                        html+="<td>"+board.rdate+"</td>"
+                        html+="</tr>"
+                    }
+                }
+
                 $('#boradHead').after(html)
+
                 if(page != 1) {
                     $('#pageLinkWrap').append('<span class="link">'+(page-1)+'</span>')
                 }
@@ -144,14 +188,9 @@
                     }
 
                 }
-                
-                
             }
         })
     }
-    $(document).on('click', '#pageLinkWrap .link', function(){
-        getPage(Number($(this).text()))
-    })
 </script>
 
 
