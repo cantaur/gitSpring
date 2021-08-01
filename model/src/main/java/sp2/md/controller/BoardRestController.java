@@ -32,17 +32,13 @@ public class BoardRestController {
         Map<String,Object> result = new HashMap<String, Object>();
         if(category == ""){
             category = null;
-        }
-        else {
+        } else {
             category = URLDecoder.decode(category, "UTF-8");
-            log.info(category + "zz");
         }
         if(searchStr == ""){
             searchStr = null;
-        }
-        else {
+        } else {
             searchStr = URLDecoder.decode(searchStr, "UTF-8");
-            log.info(searchStr + "zz");
 
         }
 
@@ -54,7 +50,6 @@ public class BoardRestController {
 
 
         // 게시글 화면 출력
-        log.info(boardService.selectBoard(search) + "eeee");
 
         result.put("list", boardService.selectBoard(search));
         result.put("listCnt",listCnt);
