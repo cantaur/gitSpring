@@ -1,0 +1,5 @@
+https://github.com/spring-projects/toolsuite-distribution/wiki/Spring-Tool-Suite-3
+http://tomcat.apache.org/whichversion.html
+https://tomcat.apache.org/download-90.cgi
+https://projectlombok.org/download
+https://mvnrepository.com/

@@ -78,7 +78,7 @@
         <div id="pageLinkWrap">
 
         </div>
-        <div style="flex-shrink:0">TOTAL : <span id="listCnt"><span></div>
+        <div style="flex-shrink:0">TOTAL : <span id="listCnt"></span></div>
     </div>
 </div>
 
@@ -110,8 +110,6 @@
 
     $(document).on('change', '#category', function(){
         $('#categoryDummy').val($('#category option:selected').val())
-        console.log(typeof($('#categoryDummy').val()))
-        console.log(typeof('테'))
     })
 
     $(document).on('click', '#searchBtn', function(){

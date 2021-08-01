@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor //파라미터가 없는 생성자
 @AllArgsConstructor //파라미터가 있는 생성자
-public class Pagination {
+public class RestVo {
 
     private int listSize = 10; //한 페이지당 보여질 글목록의 개수
     private int page; // 현재목록의 페이지 번호

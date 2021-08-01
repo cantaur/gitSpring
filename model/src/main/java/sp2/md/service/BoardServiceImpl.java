@@ -1,18 +1,14 @@
 package sp2.md.service;
-
-
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import sp2.md.domain.Board;
 import sp2.md.domain.BoardListResult;
 import sp2.md.domain.BoardVo;
-import sp2.md.domain.Search;
+import sp2.md.domain.RestVo;
 import sp2.md.filesetting.Path;
 import sp2.md.mapper.BoardMapper;
-import sp2.md.service.BoardService;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -28,27 +24,26 @@ public class BoardServiceImpl implements BoardService {
     private BoardMapper boardMapper;
 
     @Override
+    public List<Board> selectBoard(RestVo restVo) {
+        return boardMapper.selectBoard(restVo);
+    }
+    @Override
+    public int getBoardListCnt(RestVo restVo) {
+        return boardMapper.getBoardListCnt(restVo);
+    }
+
+
+
+
+
+    @Override
     public BoardListResult getBoardListResult(int cp, int ps) {
         int totalCount = boardMapper.selectCount();
-
         BoardVo boardVo = new BoardVo(cp,ps);
         List<Board> list = boardMapper.list(boardVo);
-
         return new BoardListResult(cp, ps, totalCount, list);
 
     }
-
-    @Override
-    public List<Board> selectBoard(Search search) {
-
-        return boardMapper.selectBoard(search);
-    }
-
-    @Override
-    public List<Board> selectAll(Board board) {
-        return boardMapper.selectAll(board);
-    }
-
     @Override
     public Board getBoard(int seq) {
         Board board = boardMapper.select(seq);
@@ -56,20 +51,13 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public int getBoardListCnt(Search search) {
-        return boardMapper.getBoardListCnt(search);
-    }
-
-    @Override
     public List<Board> searchName(String sName) {
         return boardMapper.searchName(sName);
     }
-
     @Override
     public List<Board> searchSubject(String subj) {
         return boardMapper.searchSubject(subj);
     }
-
     @Override
     public List<Board> searchContent(String content) {
         return boardMapper.searchContent(content);
@@ -78,18 +66,23 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void insertS(Board board) {
-
+        boardMapper.insert(board);
     }
 
     @Override
     public void insert2S(Board board) {
-
     }
-
+    @Override
+    public boolean updateS(Board board) {
+        return boardMapper.update(board);
+    }
     @Override
     public boolean deleteS(int seq) {
         return boardMapper.delete(seq);
     }
+
+
+
 
     @Override
     public String saveStore(MultipartFile file, Board board) {
@@ -157,9 +150,5 @@ public class BoardServiceImpl implements BoardService {
     }
 
 
-    @Override
-    public boolean updateS(Board board) {
 
-        return boardMapper.update(board);
-    }
 }
