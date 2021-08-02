@@ -26,6 +26,8 @@
 	    &nbsp;&nbsp;&nbsp;&nbsp;
 	    <a href="form_mt.do">업로드 폼(멀티)</a>
 	    &nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="form_dd.do">업로드 폼(멀티 드래그&드랍)</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;
 	    <a href="../">인덱스
 	    <br/><br/>
 	    

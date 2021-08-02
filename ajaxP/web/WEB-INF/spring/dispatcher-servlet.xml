@@ -11,6 +11,10 @@
 
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <mvc:resources mapping="/js/**" location="/resources/js/"/>
+    <mvc:resources mapping="/css/**" location="/resources/css/" />
+    <mvc:resources mapping="/images/**" location="/resources/images/" />
+    <mvc:resources mapping="/video/**" location="/resources/video/" />
+    <mvc:resources mapping="/audio/**" location="/resources/audio/" />
 
     <!-- 파일 업로드용 resolver -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
