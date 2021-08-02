@@ -40,4 +40,10 @@ public class Board4RestController {
 
     }
 
+    @GetMapping("/update.do")
+    public String update(int seq){
+
+        return "rest_board/update";
+    }
+
 }

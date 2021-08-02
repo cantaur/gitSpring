@@ -70,8 +70,6 @@
 
 </table>
 
-
-<hr width='600' size='2' color='gray' noshade>
 <div style="display:flex; justify-content:center; width:100%">
     <div style="color: gray; font-size: small; display:flex; justify-content:space-between; align-items:center; width:600px">
         <div style="flex-shrink:0">총 페이지 수 : <span id="pageCnt"></span></div>
@@ -82,7 +80,7 @@
     </div>
 </div>
 
-<hr width='600' size='2' color='gray' noshade>
+
 
 <select name="category" id="category">
     <option value="subject" selected>제목</option>
@@ -95,8 +93,8 @@
 <input type="hidden" id="searchStrDummy">
 <input type="hidden" id="categoryDummy" value="subject">
 
-
-
+</br></br>
+<hr width='600' size='2' color='gray' noshade>
 <script language="javascript">
 
     $(function(){
@@ -190,12 +188,6 @@
         })
     }
 </script>
-
-
-
-
-
-
 
 </body>
 </html>

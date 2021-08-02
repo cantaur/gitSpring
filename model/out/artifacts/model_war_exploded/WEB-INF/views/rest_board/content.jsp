@@ -63,7 +63,7 @@
 
     </table>
 
-    <hr width='600' size='2' color='gray' noshade>
+
     <a href='update.do?seq=' id="modify">modify</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="javascript:void(0)" data-seq="" id="delete">delete</a>
