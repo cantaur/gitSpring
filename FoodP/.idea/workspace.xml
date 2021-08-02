@@ -10,70 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6e23e07-9090-495d-a7d5-5258ca9c0530" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/foodP_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FoodP.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/soo/food/controller/IndexController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4jdbc.log4j2.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/spring/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/spring/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/css/owl.carousel.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/css/owl.theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/e1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/e2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/e3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/m1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/m2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/m3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/s1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/s2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/s3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/s4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/s5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/s6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/s7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/sp1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/sp2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/sp3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/sp4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/t1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/t2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/t3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/images/t4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/js/SmoothScroll.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/js/jarallax.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/js/jquery-1.11.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/js/owl.carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resources/js/responsiveslides.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ajaxP/src/main/java/soo/md/controller/AutoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ajaxP/web/WEB-INF/views/auto/autocomplete.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ajaxP/out/artifacts/ajaxP_war_exploded/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ajaxP/out/artifacts/ajaxP_war_exploded/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ajaxP/web/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ajaxP/web/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +46,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../model" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.22179487" />
@@ -228,7 +165,9 @@
       <option name="presentableId" value="Default" />
       <updated>1627887327553</updated>
       <workItem from="1627887329008" duration="2285000" />
-      <workItem from="1627889720574" duration="623000" />
+      <workItem from="1627889720574" duration="1061000" />
+      <workItem from="1627892531763" duration="235000" />
+      <workItem from="1627897339311" duration="30000" />
     </task>
     <servers />
   </component>
