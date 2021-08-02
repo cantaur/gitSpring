@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="soo.md.controller">
+	<logger name="soo.food.controller">
 		<level value="info" />
 	</logger>
 	

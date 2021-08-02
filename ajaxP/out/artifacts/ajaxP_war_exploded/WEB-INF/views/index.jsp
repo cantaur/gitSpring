@@ -19,6 +19,7 @@
 
 		<a href="file/list.do">Drag&Drop</a>&nbsp;&nbsp;
 		<a href="chart/chart.do">Chart</a>&nbsp;&nbsp;
+		<a href="auto/auto.do">Auto Complete</a>&nbsp;&nbsp;
 
 		<br/><br/>
 		<h3>restful 테스트</h3>
