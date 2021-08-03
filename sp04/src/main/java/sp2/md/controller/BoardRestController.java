@@ -1,24 +1,21 @@
 package sp2.md.controller;
 
 
-import lombok.AllArgsConstructor;
+
 import lombok.extern.log4j.Log4j;
-import org.codehaus.jackson.map.ObjectMapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartRequest;
-import org.springframework.web.servlet.ModelAndView;
+
 import sp2.md.domain.Board;
 import sp2.md.domain.RestVo;
-import sp2.md.filesetting.FileDownloadView;
-import sp2.md.filesetting.Path;
-import sp2.md.mapper.BoardMapper;
+
 import sp2.md.service.BoardService;
 
 
-import java.io.File;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
