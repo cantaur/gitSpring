@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sp2.md.mapper.BoardMapper">
+
+    <!-- 부등호가 들어올 때는 parsing(태그로 해석)하지 말고 그대로 해석하라는 CDATA section으로 묶어준다
+     VO (value obj) //CBD 패턴에 의해서, DB가 아닌 데이터를 갖고 실어나를 때 쓴다
+-->
+
+    <select id="list" resultType="Board" parameterType="BoardVo">
+    <![CDATA[
+        select * from(select ROWNUM rnum, aa.* from (select * from BOARD order by SEQ desc) aa)
+        where rnum>#{startRow} and rnum<=#{endRow}
+    ]]>
+    </select>
+    <select id="selectCount" resultType="int">
+        select max(ROWNUM) from BOARD
+    </select>
+    <select id="select" parameterType="int" resultType="Board">
+        select * from BOARD where SEQ=#{seq}
+    </select>
+    <select id="searchName" parameterType="string" resultType="Board">
+        select * from BOARD where WRITER like '%'||#{sName}||'%'
+    </select>
+    <select id="searchSubject" parameterType="string" resultType="Board">
+        select * from BOARD where SUBJECT like '%'||#{subj}||'%'
+    </select>
+    <select id="searchContent" parameterType="string" resultType="Board">
+        select * from BOARD where content like '%'||#{content}||'%'
+    </select>
+
+
+    <insert id="insert" parameterType="Board">
+        insert into BOARD values(BOARD_SEQ.nextval, #{writer}, #{email}, #{subject}, #{content}, SYSDATE, 'test', 'test2', 0)
+    </insert>
+    <update id="update" parameterType="Board">
+        update BOARD set EMAIL=#{email}, SUBJECT=#{subject}, CONTENT=#{content} where SEQ=#{seq}
+    </update>
+
+
+
+    <!--파일 추가-->
+    <insert id="insert2" parameterType="Board">
+        insert into BOARD values(BOARD_SEQ.nextval, #{writer}, #{email}, #{subject}, #{content}, SYSDATE, #{fname}, #{ofname}, #{fsize})
+    </insert>
+    <update id="update2" parameterType="Board">
+        update BOARD set EMAIL=#{email}, SUBJECT=#{subject}, CONTENT=#{content}, FNAME=#{fname}, OFNAME=#{ofname}, FSIZE=#{fsize} where SEQ=#{seq}
+    </update>
+
+
+
+    <delete id="delete" parameterType="int">
+        delete from BOARD where SEQ=#{seq}
+    </delete>
+
+
+
+
+
+
+
+
+    <!-- 검색할 때 결과물 반환하는 동적 쿼리 구현-->
+    <select id="selectBoard" resultType="Board">
+        select * from
+        (select ROWNUM rnum, aa.*, WRITER nm from
+        (select * from BOARD
+        <if test="searchStr!=null">
+            WHERE ${category} LIKE '%'||#{searchStr}||'%'
+        </if>
+        order by SEQ desc)
+        aa)
+        <![CDATA[ where rnum>#{startList} and rnum<=(#{startList} + #{listSize})]]>
+    </select>
+
+    <!-- 전체 글의 개수를 읽어 오는 동적 SQL문 -->
+    <select id="getBoardListCnt" resultType="int">
+        select count(*) from
+        (select ROWNUM rnum, aa.*, WRITER nm from
+        (select * from BOARD
+        <if test="searchStr!=null">WHERE ${category} LIKE '%'||#{searchStr}||'%'
+        </if>
+        )aa)
+    </select>
+
+
+</mapper>
