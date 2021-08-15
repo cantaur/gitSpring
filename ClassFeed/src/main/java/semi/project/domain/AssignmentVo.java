@@ -1,4 +1,4 @@
-package semi.project.domain;
+/*package semi.project.domain;
 
 import java.sql.Date;
 
@@ -21,4 +21,4 @@ public class AssignmentVo { // 과제
 	private String afname; // 기본 파일 이름
 	private String aofname; // 변경된 파일 이름
 	private long afsize; // 파일 크기
-}
+}*/

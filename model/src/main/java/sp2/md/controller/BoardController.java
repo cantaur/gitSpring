@@ -39,6 +39,7 @@ public class BoardController {
         String cpStr = request.getParameter("cp"); //클라이언트로부터 받음
         String psStr = request.getParameter("ps"); //클라이언트로부터 받음
 
+
         //(1) cp, 현재 페이지수 구하기
         int cp = 1;
         if(cpStr == null) { //case1) 클라이언트로부터 들어온 값이 없을 때

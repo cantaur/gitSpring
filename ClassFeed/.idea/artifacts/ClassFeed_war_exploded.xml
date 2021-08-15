@@ -51,6 +51,7 @@
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-lgpl:1.9.11" />
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.11" />
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.11" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.6.10" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="ClassFeed/web/Web" />

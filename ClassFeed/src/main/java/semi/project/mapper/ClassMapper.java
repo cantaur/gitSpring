@@ -7,5 +7,6 @@ import semi.project.domain.SubjectVo;
 
 public interface ClassMapper {
 	List<SubjectVo> selectBySucode(String sucode);
-	void insert(ClassVo classVo);
+	List<String> selectBySid(String sid);
+	void cinsert(ClassVo classVo);
 }
