@@ -1,3 +1,0 @@
-﻿ajax() 함수 
-
-https://qkrrudtjr954.github.io/jstl/2018/02/08/ajax-call.html
