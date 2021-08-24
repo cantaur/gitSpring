@@ -1,6 +1,7 @@
 package spring.boot.backend.controller;
 
 
+import lombok.extern.java.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +10,7 @@ import spring.boot.backend.filesetting.Path;
 
 import java.io.File;
 
+@Log
 @Controller
 @RequestMapping("rest_board")
 public class Board4RestController {
@@ -31,9 +33,12 @@ public class Board4RestController {
         //넘어오는 파일이름으로 파일 객체를 생성해야함
         //페이지를 보고 있는 순간에 파일이 삭제되었지만 새로고침이 되지 않은 경우, 파일이 존재하지 않으므로, 파일 존재여부를 체크해야함
         File file = new File(Path.FILE_STORE, fname);
+        log.info("ㅎㅇㅎㅇ"+file);
         if(file.exists()){
+            log.info("넘어오냐??");
             return new ModelAndView("fileDownloadView", "downloadFile", file); //fileDownloadView: 스프링컨테이너에서 생성된 파일 객체
         }else{
+            log.info("파일이 없다고?");
             return new ModelAndView("redirect:list.do");
         }
 

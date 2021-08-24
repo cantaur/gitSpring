@@ -129,7 +129,7 @@
 
     function getPage(page, searchStr, category) {
         $.ajax({
-            url : "../rest_board/getBoardlist.do", //서비스 주소
+            url : "../rest_board/getBoardlist", //서비스 주소
             data : { //서비스 처리에 필요한 인자값
                 page : page,
                 searchStr: searchStr,

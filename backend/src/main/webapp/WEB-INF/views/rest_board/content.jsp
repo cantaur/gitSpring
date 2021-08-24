@@ -77,7 +77,7 @@
     viewContent(seq)
     function viewContent(seq) {
         $.ajax({
-            url: "../rest_board/content/" + seq + ".json", //서비스 주소
+            url: "../rest_board/content/" + seq, //서비스 주소
             success: function (res) {
                 console.log(res)
                 $('#seq').text(res['seq']);
@@ -87,7 +87,7 @@
                 $('#content').text(res['content']);
 
                 $('#file a').text(res['fname']);
-                $('#file a').attr("href","download.do?fname=" + res['fname']);
+                $('#file a').attr("href","../rest_board/download/" + res['fname']);
 
                 $('#modify').attr("href","update.do?seq=" + res['seq']);
                 $('#delete').attr("data-seq",+ res['seq']);

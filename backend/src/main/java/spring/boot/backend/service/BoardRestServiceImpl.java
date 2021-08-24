@@ -2,7 +2,9 @@ package spring.boot.backend.service;
 import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.AbstractView;
 import spring.boot.backend.domain.Board;
 import spring.boot.backend.domain.BoardListResult;
 import spring.boot.backend.domain.BoardVo;
@@ -10,10 +12,11 @@ import spring.boot.backend.domain.RestVo;
 import spring.boot.backend.filesetting.Path;
 import spring.boot.backend.mapper.BoardRestMapper;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.util.List;
+import java.util.Map;
 
 @Log
 @Service
@@ -150,5 +153,32 @@ public class BoardRestServiceImpl implements BoardRestService {
     }
 
 
+    @Override
+    public void doDownloadFile(HttpServletResponse response, File file) throws IOException {
+
+        //File file = (File) model.get("downloadFile"); //컨트롤러의 download파일이 넘어오게 되어있음
+        log.info("넘어온파일?" + file);
+
+        response.setContentType("application/octer-stream");
+        response.setContentLength((int)file.length()); //파일 객체의 길이
+        String value = "attachment; filename="+java.net.URLEncoder.encode(file.getName(), "utf-8") + ";"; //브라우저에 넘겨주는 헤더 정보
+        response.setHeader("Content-Disposition", value); //http 프로토콜에 정의된 데이터 전달 공간==header
+        response.setHeader("Content-Transfer-Encoding", "binary;");
+
+        OutputStream os = response.getOutputStream();
+        FileInputStream fis = null;
+
+        try {
+            fis = new FileInputStream(file);
+            FileCopyUtils.copy(fis, os);
+            os.flush();
+        }catch(IOException ie) {
+            log.info("#FileDownloadView ie: " + ie);
+        }finally {
+            if(fis != null) fis.close();
+            if(os != null) os.close();
+        }
+
+    }
 
 }

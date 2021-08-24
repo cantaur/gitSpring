@@ -3,17 +3,27 @@ package spring.boot.backend.controller;
 
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import spring.boot.backend.domain.Board;
 import spring.boot.backend.domain.RestVo;
+import spring.boot.backend.filesetting.Path;
 import spring.boot.backend.service.BoardRestService;
 
-import java.io.UnsupportedEncodingException;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.net.URLDecoder;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
+
+import spring.boot.backend.filesetting.Path;
 
 @Log
 @RestController
@@ -76,4 +86,37 @@ public class BoardRestController {
     public void delete(@PathVariable int seq){
         boardService.deleteS(seq);
     }
+
+    @ResponseBody
+    @GetMapping("download/{fname}")
+    public void doDownloadFile(@PathVariable("fname") String fname, HttpServletResponse response) throws IOException {
+
+        log.info("파일 다운로드 프로세스");
+        log.info("다운로드할 파이리명"+fname);
+        File file = new File(Path.FILE_STORE, fname);
+        log.info("피요오오옹"+file);
+
+        response.setContentType("application/octer-stream");
+        response.setContentLength((int)file.length()); //파일 객체의 길이
+        String value = "attachment; filename="+java.net.URLEncoder.encode(file.getName(), "utf-8") + ";"; //브라우저에 넘겨주는 헤더 정보
+        response.setHeader("Content-Disposition", value); //http 프로토콜에 정의된 데이터 전달 공간==header
+        response.setHeader("Content-Transfer-Encoding", "binary;");
+
+        OutputStream os = response.getOutputStream();
+        FileInputStream fis = null;
+
+        try {
+            fis = new FileInputStream(file);
+            FileCopyUtils.copy(fis, os);
+            os.flush();
+        }catch(IOException ie) {
+            log.info("#FileDownloadView ie: " + ie);
+        }finally {
+            if(fis != null) fis.close();
+            if(os != null) os.close();
+        }
+    }
+
+
+
 }

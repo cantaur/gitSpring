@@ -24,6 +24,7 @@ public class FileDownloadView extends AbstractView { //View(jsp) 역할을 하�
                                            HttpServletResponse response) throws Exception {
 
         File file = (File)model.get("downloadFile"); //컨트롤러의 download파일이 넘어오게 되어있음
+        log.info("넘어온파일?"+file);
 
         response.setContentType(getContentType());
         response.setContentLength((int)file.length()); //파일 객체의 길이
