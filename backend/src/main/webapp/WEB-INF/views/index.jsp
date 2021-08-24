@@ -13,7 +13,7 @@
 <a href="mybatis.do">마바티스</a><br/>
 
 <a href="address/list.do">주소록</a><br/>
-<a href="board/list.do">방명록</a><br/>
+<a href="rest_board/list.do">게시판 with ajax</a><br/>
 
 
 </body>
