@@ -28,7 +28,7 @@
   <span style="color: gray; font-size: small; ">
     <a href='list.do'>list</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href='../'>index</a><br/>
+    <a href='../../../../../../../model/web/WEB-INF/views'>index</a><br/>
   </span>
   <hr width='600' size='2' color='gray' noshade>
 </div>

@@ -86,7 +86,7 @@
     </span>
 <a href='write.do'>write</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href='../'>index</a>
+<a href='..'>index</a>
 <hr width='600' size='2' color='gray' noshade>
 <TABLE border='2' width='600' align='center' noshade>
     <TR size='2' align='center' noshade bgcolor='AliceBlue' id="boradHead">

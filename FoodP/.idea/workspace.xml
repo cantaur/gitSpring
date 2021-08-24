@@ -10,45 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6e23e07-9090-495d-a7d5-5258ca9c0530" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/WEB-INF/classes/semi/project/controller/MemberController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/WEB-INF/views/content/sign_up.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/WEB-INF/views/design/classList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/WEB-INF/views/design/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/WEB-INF/views/design/signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/resources/css/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/resources/css/sign.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/resources/img/classSideLink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/resources/img/classSideLink2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/resources/img/classfeedLogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/resources/img/defaltProfile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/resources/img/feedCenter.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/resources/img/sideMenuBtn.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/resources/js/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/resources/js/sign.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/target/classes/semi/project/controller/MemberController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/web/WEB-INF/views/content/sign_up.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/web/WEB-INF/views/design/classList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/web/WEB-INF/views/design/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/web/WEB-INF/views/design/signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/web/resources/css/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/web/resources/css/sign.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/web/resources/img/classSideLink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/web/resources/img/classSideLink2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/web/resources/img/classfeedLogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/web/resources/img/defaltProfile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/web/resources/img/feedCenter.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/web/resources/img/sideMenuBtn.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/web/resources/js/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClassFeed/web/resources/js/sign.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/WEB-INF/spring/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/WEB-INF/spring/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/WEB-INF/spring/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/WEB-INF/spring/dispatcher-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ClassFeed/out/artifacts/ClassFeed_war_exploded/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClassFeed/src/main/java/semi/project/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClassFeed/src/main/java/semi/project/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClassFeed/web/WEB-INF/spring/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClassFeed/web/WEB-INF/spring/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClassFeed/web/WEB-INF/spring/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClassFeed/web/WEB-INF/spring/dispatcher-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClassFeed/web/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ClassFeed/web/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ajaxP/.idea/ajaxP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ajaxP/.idea/ajaxP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ajaxP/out/artifacts/ajaxP_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../ajaxP/out/artifacts/ajaxP_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +48,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Portfolio/ClassFeed" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../model" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.22179487" />
@@ -208,6 +172,7 @@
       <workItem from="1627897339311" duration="30000" />
       <workItem from="1629251498262" duration="175000" />
       <workItem from="1629251937532" duration="64000" />
+      <workItem from="1629788668037" duration="44000" />
     </task>
     <servers />
   </component>

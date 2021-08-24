@@ -38,7 +38,7 @@
         <span style="color: gray; font-size: small; ">
             <a href='list.do'>list</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href='../'>index</a>
+            <a href='..'>index</a>
         </span>
         <hr width="600" size='2' color="gray" noshade>
     </div>
