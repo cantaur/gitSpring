@@ -156,7 +156,6 @@ public class BoardRestServiceImpl implements BoardRestService {
     @Override
     public void doDownloadFile(HttpServletResponse response, File file) throws IOException {
 
-        //File file = (File) model.get("downloadFile"); //컨트롤러의 download파일이 넘어오게 되어있음
         log.info("넘어온파일?" + file);
 
         response.setContentType("application/octer-stream");

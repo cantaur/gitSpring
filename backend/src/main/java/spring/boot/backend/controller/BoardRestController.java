@@ -87,36 +87,10 @@ public class BoardRestController {
         boardService.deleteS(seq);
     }
 
-    @ResponseBody
     @GetMapping("download/{fname}")
     public void doDownloadFile(@PathVariable("fname") String fname, HttpServletResponse response) throws IOException {
 
-        log.info("파일 다운로드 프로세스");
-        log.info("다운로드할 파이리명"+fname);
         File file = new File(Path.FILE_STORE, fname);
-        log.info("피요오오옹"+file);
-
-        response.setContentType("application/octer-stream");
-        response.setContentLength((int)file.length()); //파일 객체의 길이
-        String value = "attachment; filename="+java.net.URLEncoder.encode(file.getName(), "utf-8") + ";"; //브라우저에 넘겨주는 헤더 정보
-        response.setHeader("Content-Disposition", value); //http 프로토콜에 정의된 데이터 전달 공간==header
-        response.setHeader("Content-Transfer-Encoding", "binary;");
-
-        OutputStream os = response.getOutputStream();
-        FileInputStream fis = null;
-
-        try {
-            fis = new FileInputStream(file);
-            FileCopyUtils.copy(fis, os);
-            os.flush();
-        }catch(IOException ie) {
-            log.info("#FileDownloadView ie: " + ie);
-        }finally {
-            if(fis != null) fis.close();
-            if(os != null) os.close();
-        }
+        boardService.doDownloadFile(response, file);
     }
-
-
-
 }
