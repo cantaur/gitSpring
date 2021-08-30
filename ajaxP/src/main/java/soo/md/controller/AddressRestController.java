@@ -10,6 +10,7 @@ import java.util.List;
 
 @Log4j
 @RestController
+@CrossOrigin
 @RequestMapping("rest_addr")
 public class AddressRestController {//CRUD
     @Autowired
