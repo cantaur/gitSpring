@@ -8,7 +8,7 @@ import java.util.List;
 public interface AddressRestService {
 	List<Address> listS();
 	void insertS(Address address);
-	void deleteS(long seq);
+	void deleteS(int seq);
 	//for Ajax
 	Address selectBySeqS(long seq);
 	List<Address> selectByNameS(String name);

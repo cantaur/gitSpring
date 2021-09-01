@@ -28,7 +28,7 @@ public class AddressRestServiceImpl implements AddressRestService {
     }
 
     @Override
-    public void deleteS(long seq) {
+    public void deleteS(int seq) {
         mapper.delete(seq);
 
     }
