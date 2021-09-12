@@ -12,7 +12,7 @@ import java.util.List;
 public interface AddressRestMapper {
 	List<Address> list();
 	void insert(Address address);
-	void delete(long seq);
+	void delete(int seq);
 
 	//for Ajax
 	Address selectBySeq(long seq);

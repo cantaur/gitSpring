@@ -28,10 +28,12 @@ import spring.boot.backend.filesetting.Path;
 @Log
 @RestController
 @RequestMapping("rest_board")
+@CrossOrigin
 
 public class BoardRestController {
     @Autowired
     private BoardRestService boardService;
+
 
 
     @GetMapping(value = "getBoardlist", produces = "application/json")
