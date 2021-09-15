@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import com.project.pium.domain.Member;
+import com.project.pium.domain.SignDTO;
 import com.project.pium.mapper.MemberMapper;
 
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //email 유효성검사 로직 들어가야함
-        Member member = sqlSession.selectOne(username,"com.project.pium.domain.Member.userdetails");
+        SignDTO member = sqlSession.selectOne(username,"com.project.pium.domain.Member.userdetails");
         log.info("#member"+member);
         if(member==null) throw new UsernameNotFoundException(username);
         List<GrantedAuthority> authorities = new ArrayList<>();

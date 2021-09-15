@@ -25,23 +25,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        //유저 인증정보를 설정 할 수 있다.
-        //이곳에서 jdbc 에 인증정보를 연결한다.
-        //super.configure(auth);
-        /**
+        //유저 인증정보를 설정 할 수 있다. 이곳에서 jdbc 에 인증정보를 연결
+
 
 
         auth.inMemoryAuthentication()
                 .withUser("user")//user 계정 생성(==로그인 ID)
                 .password(passwordEncoder().encode("1234")) //passwordEncoder로 등록한 인코더로 1234를 암호화한다.
                 .roles("USER"); //유저에게 USER라는 역할을 제공한다.
-        */
 
-        auth
-                .userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
 
-        log.info("#auth"+auth);
-        log.info("userDetailsService"+userDetailsService.getClass());
+//        auth
+//                .userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
+//
+//        log.info("#auth"+auth);
+//        log.info("userDetailsService"+userDetailsService.getClass());
 
     }
 
@@ -56,18 +54,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         //security 전역 설정을 할 수 있다.
         // 밑에 HttpSecurity 보다 우선시 되며, static 파일 (css, js 같은) 인증이 필요없는 리소스는 이곳에서 설정 할 수 있다.
-        //super.configure(web);
         web.ignoring().antMatchers("/css", "/js");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //resource 보안 부분
-        //super.configure(http);
         http.authorizeRequests() //권한요청 처리 설정 메소드
-                .antMatchers("/private/**").hasAnyRole("USER") //private 이하의 모든 요청은 USER 역할을 갖는다.
+                .antMatchers("/private/**").hasAnyRole("USER") //private 이하의 모든 요청은 USER 역할을 갖고 있어야 접근이 가능하다.
+                .antMatchers("/admin/**").hasAnyRole("ADMIN") // admin 경로 추가
                 .anyRequest().permitAll() //다른 요청은 누구든지 접근 할 수 있다.
-                .and()
+            .and()
                 .formLogin()
                 .loginPage("/login") //.formLogin() 의 .loginPage() 메소드 : security는 더이상 기본으로 제공하는 페이지를 보여주지 않고, 개발자가 설정한 컨트롤러로 바인딩한다.
                 .usernameParameter("username") // username parameter
