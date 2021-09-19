@@ -106,7 +106,7 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
-<!--(9) JavaMailSender-->
+		<!--(9) JavaMailSender-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
